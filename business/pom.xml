@@ -22,4 +22,25 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>arq-openejb-embedded-4-openjpa</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.openejb</groupId>
+                    <artifactId>arquillian-openejb-embedded-4</artifactId>
+                    <version>4.7.1</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <testResources>
+                    <testResource>
+                        <directory>src/test/resources</directory>
+                    </testResource>
+                </testResources>
+            </build>
+        </profile>
+    </profiles>
+
 </project>
