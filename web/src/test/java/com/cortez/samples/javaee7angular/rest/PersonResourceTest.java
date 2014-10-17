@@ -43,11 +43,12 @@ public class PersonResourceTest {
 
         final File[] business = Maven.resolver().loadPomFromFile("pom.xml").resolve(
                 "com.cortez.samples.javaee7-angular:business").withoutTransitivity().asFile();
+        final File[] openjpa = Maven.resolver().loadPomFromFile("pom.xml").resolve("org.apache.openjpa:openjpa").withTransitivity().asFile();
 
         final WebArchive webArchive =
                 ShrinkWrap.create(WebArchive.class).addClasses(JavaEE7AngularApplication.class, PersonResource.class,
                         PaginatedListWrapper.class).addAsLibraries(
-                        model).addAsLibraries(business);
+                        model).addAsLibraries(business).addAsLibraries(openjpa);
 
         return webArchive;
     }
