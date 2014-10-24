@@ -1,16 +1,20 @@
-# Java EE 7 - Angular - Sample Application #
+# Java EE 7 - Angular - Arquillian - Sample Application
 
 ## How to run ? ##
 
-* You need JDK 7 or higher, Maven 3 and Wildfly 8 to run the application.
+* You need JDK 7 or higher and Maven 3 to run the application.
 
 * Build the code using Maven with the command: `mvn clean install`.
 
-* Copy the file javaee7-angular-3.1.war from target directory to your Wildfly installation folder /standalone/deployments
+* Change directory to web
 
-* Start Wildfly and go to http://localhost:8080/javaee7-angular-3.1/
+* Execute  `mvn wildfly:run -P wildfly-run -Dmaven.test.skip=true`
+
+* Browse to: http://localhost:8080/web-1.0.0-SNAPSHOT/
+
 
 ## Javascript Package Management (optional) ##
+_Taken from the orginial, not tested_
 
 * The required JS libraries are included in the project, but it also possible to manage them with the next steps.
 
