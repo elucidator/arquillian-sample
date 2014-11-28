@@ -26,7 +26,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -48,7 +47,7 @@ import static org.hamcrest.core.Is.is;
  * Class PersonResourceTest
  */
 @RunWith(Arquillian.class)
-public class PersonResourceTest {
+public class ITPersonResourceTest {
     private WebTarget target;
     @ArquillianResource
     private URL base;
