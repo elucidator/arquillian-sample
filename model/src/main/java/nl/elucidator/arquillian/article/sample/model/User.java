@@ -23,19 +23,13 @@ public class User {
     public static final int LEGAL_ADULT = 18;
     private final String name;
     private final int age;
-    private final Gender gender;
 
-    public User(final String name, final int age, final Gender gender) {
+    public User(final String name, final int age) {
         this.name = name;
         this.age = age;
-        this.gender = gender;
     }
 
     public boolean isAdult() {
         return age > LEGAL_ADULT;
-    }
-
-    public boolean canEnroll() {
-        return age > LEGAL_ADULT && gender == Gender.MALE;
     }
 }

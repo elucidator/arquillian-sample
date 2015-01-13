@@ -14,12 +14,22 @@
  * limitations under the License.
  */
 
-package nl.elucidator.arquillian.article.sample.model;
+package nl.elucidator.arquillian.article.sample.business;
+
+import nl.elucidator.arquillian.article.sample.model.User;
+
+import javax.inject.Inject;
+import java.security.SecureRandom;
 
 /**
- * Class Gender.
+ * Class LotteryDraw.
  */
-public enum Gender {
-    MALE,
-    FEMALE
+public class LotteryDraw {
+
+    @Inject
+    private SecureRandom random;
+
+    public boolean isLucky(final User user, final int lotteryNumber) {
+        return (random.nextInt() == lotteryNumber) && user.isAdult();
+    }
 }
