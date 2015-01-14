@@ -35,7 +35,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 
 @RunWith(Arquillian.class)
-public class PersonTest {
+public class PersonIT {
 
     @Inject
     UserTransaction utx;

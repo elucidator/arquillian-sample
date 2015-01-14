@@ -16,28 +16,22 @@
 
 package nl.elucidator.arquillian.article.sample.model;
 
-/**
- * Class User.
- */
-public class User {
-    public static final int LEGAL_ADULT = 18;
-    private final String name;
-    private final int age;
+import org.junit.Test;
 
-    public User(final String name, final int age) {
-        this.name = name;
-        this.age = age;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
+public class UserTest {
+
+    public static final String USER_NAME = "Pieter";
+    public static final int USER_AGE = 44;
+
+    @Test
+    public void isCOnstructedCorrectly() {
+        User user = new User(USER_NAME, USER_AGE);
+        assertThat(user.getName(), is(USER_NAME));
+        assertThat(user.getAge(), is(USER_AGE));
+        assertThat(user.isAdult(), is(true));
     }
 
-    public boolean isAdult() {
-        return age > LEGAL_ADULT;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
 }
