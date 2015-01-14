@@ -23,8 +23,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.security.SecureRandom;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
@@ -39,18 +37,18 @@ public class LotteryDrawTest {
     @InjectMocks
     private LotteryDraw lotteryDraw = new LotteryDraw();
     @Mock
-    private SecureRandom mockedRandom;
+    private WinningNumberGenerator winningNumberGenerator;
 
     @Test
     public void adultUser() throws Exception {
-        when(mockedRandom.nextInt()).thenReturn(MAGIC_NUMBER);
+        when(winningNumberGenerator.getWinningNumber()).thenReturn(MAGIC_NUMBER);
         assertThat(lotteryDraw.isLucky(adultUser, MAGIC_NUMBER), is(true));
         assertThat(lotteryDraw.isLucky(adultUser, UNLUCKY_NUMBER), is(false));
     }
 
     @Test
     public void underAgeCanNotWin() {
-        when(mockedRandom.nextInt()).thenReturn(MAGIC_NUMBER);
+        when(winningNumberGenerator.getWinningNumber()).thenReturn(MAGIC_NUMBER);
         assertThat(lotteryDraw.isLucky(underAgeUser, MAGIC_NUMBER), is(false));
         assertThat(lotteryDraw.isLucky(underAgeUser, UNLUCKY_NUMBER), is(false));
 

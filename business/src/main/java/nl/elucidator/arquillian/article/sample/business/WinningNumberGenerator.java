@@ -16,19 +16,22 @@
 
 package nl.elucidator.arquillian.article.sample.business;
 
-import nl.elucidator.arquillian.article.sample.model.User;
-
-import javax.inject.Inject;
+import javax.annotation.PostConstruct;
+import java.security.SecureRandom;
 
 /**
- * Class LotteryDraw.
+ * Class WinningNumberGenerator.
  */
-public class LotteryDraw {
+public class WinningNumberGenerator {
+    private static final SecureRandom secureRandom = new SecureRandom();
+    private int winningNumber;
 
-    @Inject
-    private WinningNumberGenerator generator;
+    @PostConstruct
+    public void postConstruct() {
+        winningNumber = secureRandom.nextInt();
+    }
 
-    public boolean isLucky(final User user, final int lotteryNumber) {
-        return (generator.getWinningNumber() == lotteryNumber) && user.isAdult();
+    public int getWinningNumber() {
+        return winningNumber;
     }
 }
